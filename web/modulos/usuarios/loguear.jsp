@@ -1,4 +1,3 @@
-
 <%@page language="java" import="java.io.*,java.sql.*,javax.sql.*,javax.naming.*" %> 
 <%@ page language="java" import="Modelo.conectar" %> 
 
@@ -38,12 +37,12 @@ catch(Exception e) {
  	{
 	 
 	 // abre a seccao para a pagina a ser redirecionado
-	 session.setAttribute("abre_sesion", contrasena); // criar a sesscao com a chave=abre_secao e valor emaile(email   )
-        //se o email e a senha estiverem coretos faca o codigo aseguir
+	 session.setAttribute("abre_sesion", contrasena); // crea una sesion con el valor 
+       
          //direciona a pagina para princ.jsp
-              String site = new String("Principal.jsp"); 
+              String site = new String("../../principal.jsp"); 
               response.setStatus(response.SC_MOVED_TEMPORARILY); 
-               response.setHeader("Location", site); 
+              response.setHeader("Location", site); 
           }else{
         	 
         	 

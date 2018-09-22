@@ -1,9 +1,6 @@
 <%@page import="Modelo.*" %>
 <%@page import="java.util.ArrayList"%>
- <%
-    Estudiante e = EstudianteRegistroBD.getEstudiante((String)request.getParameter("ced")); 
-  %>
-    
+   
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -14,7 +11,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -35,14 +32,14 @@
           <a class="brand" href="#" style="color:#EB4A52"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">                
-                 <li><a href="Principal.jsp" style="color:#A8BBFB">Inicio</a></li>  
+                 <li><a href="../../principal.jsp" style="color:#A8BBFB">Inicio</a></li>  
                     <li class="dropdown">
 
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Profesor <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="crear_profesor.jsp"><i class="icon-plus"></i>Crear Profesor</a></li>
-                    <li><a href="Modulos/profesor/listado_profesor.php"><i class="icon-list"></i>Listado de Profesores</a></li>
-                    <li><a href="Modulos/profesor/listado_profesorMate.php"><i class="icon-list"></i>Listado de Asignar</a></li> 
+                    <li><a href="listado_profesor.jsp"><i class="icon-list"></i>Listado de Profesores</a></li>
+                    <li><a href="listado_asignar_materia_profesor.jsp"><i class="icon-list"></i>Listado de Asignar</a></li> 
                     <li class="divider"></li>
                
                 </ul>
@@ -52,17 +49,17 @@
 
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Materias <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="Modulos/materia/crear_materia.php"><i class="icon-plus"></i>Crear Materia</a></li>
-                    <li><a href="Modulos/materia/listado_materia.php"><i class="icon-list"></i>Listado de Materias</a></li>   
+                  <li><a href="../materia/crear_materia.jsp"><i class="icon-plus"></i>Crear Materia</a></li>
+                    <li><a href="../materia/listado_materia.php"><i class="icon-list"></i>Listado de Materias</a></li>   
                     <li class="divider"></li>
                      </ul>
               </li>
                 <li class="dropdown">
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Alumno <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="crear_estudiante.jsp"><i class="icon-plus"></i>Crear Alumno</a></li>
-                    <li><a href="listado_estudiante.jsp"><i class="icon-list"></i>Listado de Alumno</a></li>
-                  <li><a href="Modulos/alumno/listado_asignarMate.php"><i class="icon-list"></i>Listado de Asignar</a></li>       
+                  <li><a href="../estudiante/crear_estudiante.jsp"><i class="icon-plus"></i>Crear Alumno</a></li>
+                    <li><a href="../estudiante/listado_estudiante.jsp"><i class="icon-list"></i>Listado de Alumno</a></li>
+                  <li><a href="../estudiante/listado_asignar_materia_estudiante.jsp"><i class="icon-list"></i>Listado de Asignar</a></li>       
                     <li class="divider"></li>
                 </ul>
               </li>
@@ -73,10 +70,10 @@
                     	Hola! <?php echo $_SESSION['user_name']; ?> <b class="caret"></b>
                     </a>
                 	<ul class="dropdown-menu">
-	                    <li><a href="perfil.php">
+	                    <li><a href="../usuarios/perfil.jsp">
                       <i class="icon-user"></i> Mi Perfil</a></li>
                       	<li class="divider"></li>
-                      	<li><a href="php_cerrar.php">
+                      	<li><a href="../../index.jsp">
                         <i class="icon-off"></i> Salir</a></li>
                     </ul>
                 </li>
@@ -91,7 +88,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="img/udec.jpg">
+	<link rel="shortcut icon" href="../../img/distrital.png">
   </head>
   <!-- FACEBOOK COMENTARIOS -->
 	<div id="fb-root"></div>
@@ -115,7 +112,7 @@
             	<table class="table table-bordered">
                   <tr class="well">
                     <td>
-                    	<h1 align="center">Modificar Estudiante</h1>
+                    	<h1 align="center">Crear Profesor</h1>
            
                     </td>
                   </tr>
@@ -123,9 +120,9 @@
                 <table class="table table-bordered">
                   <tr>
                     <td>
-                   	  <form name="form1" method="post" action="Controlador">
+                   	  <form name="form1" method="post" action="../../Controlador">
                                 <div>
-                <input type="hidden" name="accion" value="ModificarEstudiante" />
+                <input type="hidden" name="accion" value="RegistrarProfesor" />
                              
                         <div align="center"><pre><strong>Informacion Basica</strong></pre></div>
 
@@ -135,29 +132,29 @@
                           	<strong>Cedula</strong><br>
                                
                   
-                                <input type="text" name="cedula" autocomplete="off" value="<%= e.getCodigo()%>" readonly ><br>
+                                <input type="text" name="cedula" autocomplete="off" value="<%//p.getCedula();%>"><br>
                      
                           </div>
                           <div class="span6" align="center">
                           	<strong>Nombre </strong><br>
-                                <input type="text" name="nombre" class="input-xxlarge" autocomplete="off" required value="<%= e.getNombre()%>"><br>
+                                <input type="text" name="nombre" class="input-xxlarge" autocomplete="off" required value="<%// p.getNombre();%>"><br>
                           </div>
                         </div>
 
                          </div>
                           <div class="span6" align="center">
                             <strong>Apellido</strong><br>
-                            <input type="text" name="apellido"  autocomplete="off" required value="<%= e.getApellido()%>"><br>
+                            <input type="text" name="apellido"  autocomplete="off" required value="<%//p.getApellido();%>"><br>
                           </div>
                         </div>
 
                          </div>
                           <div class="span6" align="center">
                             <strong>Telefono</strong><br>
-                            <input type="text" name="telefono"  autocomplete="off" required value="<%= e.getTelefono()%>"><br>
+                            <input type="text" name="telefono"  autocomplete="off" required value="<%//p.getTelefono();%>"><br>
                           </div>
                         </div>
-                       
+                        
                         
 
                           <br></br> <br></br><br></br> 
@@ -167,20 +164,20 @@
                         </div>
                         </form>
                         
-                       
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+                     
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap-transition.js"></script>
+    <script src="../../js/bootstrap-alert.js"></script>
+    <script src="../../js/bootstrap-modal.js"></script>
+    <script src="../../js/bootstrap-dropdown.js"></script>
+    <script src="../../js/bootstrap-scrollspy.js"></script>
+    <script src="../../js/bootstrap-tab.js"></script>
+    <script src="../../js/bootstrap-tooltip.js"></script>
+    <script src="../../js/bootstrap-popover.js"></script>
+    <script src="../../js/bootstrap-button.js"></script>
+    <script src="../../js/bootstrap-collapse.js"></script>
+    <script src="../../js/bootstrap-carousel.js"></script>
+    <script src="../../js/bootstrap-typeahead.js"></script>
 
   </body>
 </html>

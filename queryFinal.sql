@@ -1,21 +1,23 @@
+create database Maestro;
+
 create table profesores(
- cedula_prof varchar(5),
- nombre_prof varchar(30),
- apellido_prof varchar(30),
- telefono varchar(30),
+ cedula_prof varchar(100),
+ nombre_prof varchar(100),
+ apellido_prof varchar(100),
+ telefono varchar(100),
 primary key(cedula_prof));
 
 create table materia(
-cod_materia varchar(5),
-nom_materia varchar(50),
+cod_materia varchar(100),
+nom_materia varchar(100),
 descripsion varchar(100),
-intesisdad_horaria varchar(35), 
-n_creditos varchar(30),
+intesisdad_horaria varchar(100), 
+n_creditos varchar(100),
 PRIMARY KEY (cod_materia));
 
 create table materia_profesor(
-cod_materi varchar(5),
-cedula_pro varchar(50),
+cod_materi varchar(100),
+cedula_pro varchar(100),
 PRIMARY KEY (cod_materi,cedula_pro));
 
  alter table materia_profesor
@@ -31,35 +33,35 @@ PRIMARY KEY (cod_materi,cedula_pro));
    
 CREATE TABLE persona (
    id serial ,
-   doc varchar(255) ,
-   nom varchar(255) ,
-   ape varchar(255),
+   doc varchar(100) ,
+   nom varchar(100) ,
+   ape varchar(100),
    fecha date NOT NULL,
-   tel varchar(255) ,
-   cel varchar(255),
-   sexo varchar(255) ,
-   dir varchar(255) ,
-   nota varchar(255) ,
+   tel varchar(100) ,
+   cel varchar(100),
+   sexo varchar(100) ,
+   dir varchar(100) ,
+   nota varchar(100) ,
    fechar date ,
-   estado varchar(255),
+   estado varchar(100),
   PRIMARY KEY (id)
 );
 CREATE TABLE username(
   id serial, 
-  usu varchar(255), 
-  con varchar(255) ,
-  correo varchar(255),
+  usu varchar(100), 
+  con varchar(100) ,
+  correo varchar(100),
   fecha date,
-  tipo varchar(255), 
+  tipo varchar(100), 
   PRIMARY KEY (id)
 );
  
 
 CREATE TABLE estudiante(
-  codigo_est varchar(255), 
-  nombre_est varchar(255) ,
-  apellido_est varchar(255),
-  telefono varchar(255), 
+  codigo_est varchar(100), 
+  nombre_est varchar(100) ,
+  apellido_est varchar(100),
+  telefono varchar(100), 
   PRIMARY KEY (codigo_est)
 );
 

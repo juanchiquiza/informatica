@@ -1,10 +1,5 @@
 package Controlador;
 
-//import Modelo.DetalleVenta;
-//import Modelo.Producto;
-//import Modelo.ProductoBD;
-//import Modelo.Venta;
-//import Modelo.VentaBD;
 import Modelo.Estudiante;
 import Modelo.EstudianteRegistroBD;
 import Modelo.Materia;
@@ -18,8 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-//@author Henry Joe Wong Urquiza
 
 public class Controlador extends HttpServlet {
 
@@ -74,7 +67,6 @@ public class Controlador extends HttpServlet {
         }else if (accion.equals("ConsultarMateriaEstudiante")) {
             this.ConsultarMateriaEstudiante(request, response);
         }
-
     }
     
     private void ConsultarMateriaEstudiante(HttpServletRequest request, HttpServletResponse response)
@@ -82,8 +74,8 @@ public class Controlador extends HttpServlet {
           
            String buscar = request.getParameter("buscar");
            request.getSession().setAttribute("buscarMateriaEstudiante", buscar);
-           response.sendRedirect("listado_Asignar_materia_estudiante.jsp");
-      }
+           response.sendRedirect("modulos/estudiante/listado_asignar_materia_estudiante.jsp");
+    }
     
     private void Asignar_materia_alumno(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -94,7 +86,7 @@ public class Controlador extends HttpServlet {
         et.setMateria(request.getParameter("materia")); 
         EstudianteRegistroBD ets = new EstudianteRegistroBD();
         boolean rpta = ets.insertar_Materia_Alumno(et);
-        response.sendRedirect("Asignar_materia_profesor.jsp?men=Se registro la materia al alumno de manera correcta");
+        response.sendRedirect("modulos/profesor/asignar_materia_profesor.jsp?men=Se registro la materia al alumno de manera correcta");
 
     }
     
@@ -103,7 +95,7 @@ public class Controlador extends HttpServlet {
           
            String buscar = request.getParameter("buscar");
            request.getSession().setAttribute("buscarMateriaProfesor", buscar);
-           response.sendRedirect("listado_Asignar_materia_profesor.jsp");
+           response.sendRedirect("modulos/profesor/listado_asignar_materia_profesor.jsp");
       }
     
     private void Asignar_materia_profesor(HttpServletRequest request, HttpServletResponse response)
@@ -115,7 +107,7 @@ public class Controlador extends HttpServlet {
         p.setMateria(request.getParameter("materia")); 
         ProfesorRegistroBD pro = new ProfesorRegistroBD();
         boolean rpta = pro.insertar_Materia_Profesor(p);
-        response.sendRedirect("listado_profesor.jsp?men=Se registro la materia al profesor de manera correcta");
+        response.sendRedirect("modulos/profesor/listado_profesor.jsp?men=Se registro la materia al profesor de manera correcta");
 
     }
     
@@ -123,13 +115,11 @@ public class Controlador extends HttpServlet {
     private void EliminarMateria(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Materia ma = new Materia();
-       
         ma.setCodigo(request.getParameter("ced"));    
-       
         MateriaRegistroBD mat = new MateriaRegistroBD();
         boolean rpta = mat.eliminarMateria(ma);
      
-        response.sendRedirect("listado_materia.jsp?men=Se elimino la materia de manera correcta");
+        response.sendRedirect("modulos/materia/listado_materia.jsp?men=Se elimino la materia de manera correcta");
     }
     private void ModificarMateria(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -141,7 +131,7 @@ public class Controlador extends HttpServlet {
         ma.setInt_horario(request.getParameter("horario")); 
         MateriaRegistroBD mat = new MateriaRegistroBD();
         boolean rpta = mat.actualizaMateria(ma);
-        response.sendRedirect("crear_materia.jsp?men=Se modifico la materia de manera correcta");
+        response.sendRedirect("modulos/materia/crear_materia.jsp?men=Se modifico la materia de manera correcta");
 
     }
       private void ConsultarMateria(HttpServletRequest request, HttpServletResponse response)
@@ -149,7 +139,7 @@ public class Controlador extends HttpServlet {
           
            String buscar = request.getParameter("buscar");
            request.getSession().setAttribute("buscarMateria", buscar);
-           response.sendRedirect("listado_materia.jsp");
+           response.sendRedirect("modulos/materia/listado_materia.jsp");
       }
     private void RegistrarMateria(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -161,7 +151,7 @@ public class Controlador extends HttpServlet {
         ma.setInt_horario(request.getParameter("horario")); 
         MateriaRegistroBD mat = new MateriaRegistroBD();
         boolean rpta = mat.insertarMateria(ma);
-        response.sendRedirect("crear_materia.jsp?men=Se registro la materia de manera correcta");
+        response.sendRedirect("modulos/materia/crear_materia.jsp?men=Se registro la materia de manera correcta");
 
     }
     private void RegistrarEstudiante(HttpServletRequest request, HttpServletResponse response)
@@ -173,7 +163,7 @@ public class Controlador extends HttpServlet {
         e.setTelefono(request.getParameter("telefono")); 
         EstudianteRegistroBD est = new EstudianteRegistroBD();
         boolean rpta = est.insertarEstudiante(e);
-        response.sendRedirect("crear_estudiante.jsp?men=Se registro el estudiante de manera correcta");
+        response.sendRedirect("modulos/estudiante/crear_estudiante.jsp?men=Se registro el estudiante de manera correcta");
 
     }
     
@@ -182,7 +172,7 @@ public class Controlador extends HttpServlet {
           
            String buscar = request.getParameter("buscar");
            request.getSession().setAttribute("buscarEstudiante", buscar);
-           response.sendRedirect("listado_estudiante.jsp");
+           response.sendRedirect("modulos/estudiante/listado_estudiante.jsp");
       }
     
      private void EliminarEstudiante(HttpServletRequest request, HttpServletResponse response)
@@ -194,7 +184,7 @@ public class Controlador extends HttpServlet {
         EstudianteRegistroBD est = new EstudianteRegistroBD();
         boolean rpta = est.eliminarEstudiante(e);
      
-        response.sendRedirect("listado_estudiante.jsp?men=Se elimino el alumno de manera correcta");
+        response.sendRedirect("modulos/estudiante/listado_estudiante.jsp?men=Se elimino el alumno de manera correcta");
     }
      
      private void modificarEstudiante(HttpServletRequest request, HttpServletResponse response)
@@ -207,7 +197,7 @@ public class Controlador extends HttpServlet {
         e.setTelefono(request.getParameter("telefono")); 
         EstudianteRegistroBD est = new EstudianteRegistroBD();
         boolean rpta = est.actualizaEstudiante(e);
-        response.sendRedirect("crear_estudiante.jsp?men=Se modifico el alumno de manera correcta");
+        response.sendRedirect("modulos/estudiante/crear_estudiante.jsp?men=Se modifico el alumno de manera correcta");
 
     }
     
@@ -221,7 +211,7 @@ public class Controlador extends HttpServlet {
         p.setTelefono(request.getParameter("telefono")); 
         ProfesorRegistroBD pro = new ProfesorRegistroBD();
         boolean rpta = pro.insertarProfesor(p);
-        response.sendRedirect("crear_profesor.jsp?men=Se registro el profesor de manera correcta");
+        response.sendRedirect("modulos/profesor/crear_profesor.jsp?men=Se registro el profesor de manera correcta");
 
     }
     
@@ -230,7 +220,7 @@ public class Controlador extends HttpServlet {
           
            String buscar = request.getParameter("buscar");
            request.getSession().setAttribute("buscarProfesor", buscar);
-           response.sendRedirect("listado_profesor.jsp");
+           response.sendRedirect("modulos/profesor/listado_profesor.jsp");
       }
       
       
@@ -244,7 +234,7 @@ public class Controlador extends HttpServlet {
         p.setTelefono(request.getParameter("telefono")); 
         ProfesorRegistroBD pro = new ProfesorRegistroBD();
         boolean rpta = pro.actualizaProfesor(p);
-        response.sendRedirect("crear_profesor.jsp?men=Se modificoo el profesor de manera correcta");
+        response.sendRedirect("modulos/profesor/crear_profesor.jsp?men=Se modificoo el profesor de manera correcta");
 
     }
        
@@ -257,7 +247,6 @@ public class Controlador extends HttpServlet {
         ProfesorRegistroBD pro = new ProfesorRegistroBD();
         boolean rpta = pro.eliminarProfesor(p);
      
-        response.sendRedirect("listado_profesor.jsp?men=Se elimino el profesor de manera correcta");
+        response.sendRedirect("modulos/profesor/listado_profesor.jsp?men=Se elimino el profesor de manera correcta");
     }
- 
 }

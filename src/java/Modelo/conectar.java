@@ -3,8 +3,8 @@ package Modelo;
 import java.sql.*;
 public class  conectar {
 
-     Connection conectar=null;
-  //    Connection conectar=null;
+    Connection conectar=null;
+  
     public Connection conexion(){
         
         String url = "jdbc:postgresql://localhost:5432/Maestro";

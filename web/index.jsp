@@ -1,8 +1,3 @@
-<%--  <?php 
-	session_start();
-	include_once "Modulos/php_conexion.php";
-	include_once "Modulos/funciones.php";
-?>  --%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -49,74 +44,25 @@
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/bebe.jpg">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/bebe.jpg">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/bebe.jpg">
-                    <link rel="apple-touch-icon-precomposed" href="img/bebes.jpg">
-                             
-                                <link rel="shortcut icon" href="img/udec.jpg">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/distrital.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/distrital.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/distrital.png">
+    <link rel="apple-touch-icon-precomposed" href="img/distrital.png">
+    <link rel="shortcut icon" href="img/distrital.png">
   </head>
 <br></br><br></br>
 
   <body>
 
     <div class="container">
-	  <form name="form1" method="post" action="loguear.jsp" class="form-signin">
-      	<center><img src="img/udec.jpg" width="150" height="100"></center><br>
+	  <form name="form1" method="post" action="modulos/usuarios/loguear.jsp" class="form-signin">
+      	<center><img src="img/distrital.png" width="250" height="200"></center><br>
        
-        
-        <%
-         
-            
-       /*	<?php 
-	  	if(!empty($_POST['usu']) and !empty($_POST['con'])){ 
-			$usu=limpiar($_POST['usu']);
-			$con=limpiar($_POST['con']);
-			
-		//	$pa=mysql_query("SELECT * FROM username, persona WHERE persona.doc='$usu' and username.usu='$usu' and username.con='$con'");
-    $pa=pg_query("SELECT * FROM username, persona WHERE persona.doc='$usu' and username.usu='$usu' and username.con='$con'");
-    				
-		//	if($row=mysql_fetch_array($pa)){
-      if($row=pg_fetch_array($pa)){
-      
-				if($row['estado']=='s'){
-					$nombre=$row['nom'];
-					$nombre=explode(" ", $nombre);
-					$nombre=$nombre[0];
-					$_SESSION['user_name']=$nombre;
-					$_SESSION['tipo_user']=$row['tipo'];
-					$_SESSION['cod_user']=$usu;
-					if($row['tipo']=='a'){
-						echo mensajes('Bienvenido Admin<br>'.$row['nom'].' '.$row['ape'].'','verde').'<br>';
-						echo '<center><img src="img/ajax-loader1.gif"></center><br>';
-						echo '<meta http-equiv="refresh" content="2;url=Principal.php">';
-					}else{
-						echo mensajes('Bienvenido <br>'.$row['nom'].' '.$row['ape'].'','verde').'<br>';
-						echo '<center><img src="img/ajax-loader1.gif"></center><br>';
-						echo '<meta http-equiv="refresh" content="2;url=Principal.php">';
-					}
-				}else{
-					echo mensajes('Usted no se encuentra Activo en la base de datos<br>Consulte con su Administrador de Sistema','rojo');	
-				}
-			}else{
-				echo mensajes('Usuario y Contraseña Incorrecto<br>','rojo');
-				echo '<center><a href="index.php" class="btn"><strong>Intentar de Nuevo</strong></a></center>';
-			}
-		}else{
-        
-			echo ' */
-        %>
-<input type="text" name="usu" class="input-block-level" placeholder="Documento" autocomplete="off" required>
-					<input type="password" name="con" class="input-block-level" placeholder="Password" autocomplete="off" required>
-					<div align="right"><button class="btn btn-large btn-primary" type="submit"><strong>Entrar</strong></button></div>';		
-                                        <%--	}
-	  ?>  --%>
+        <input type="text" name="usu" class="input-block-level" placeholder="Documento" autocomplete="off" required>
+        <input type="password" name="con" class="input-block-level" placeholder="Password" autocomplete="off" required>
+        <div align="right"><button class="btn btn-large btn-primary" type="submit"><strong>Entrar</strong></button></div>		
+
       </form>
 
     </div> <!-- /container -->

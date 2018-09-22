@@ -1,11 +1,11 @@
+<%@page import="Modelo.*" %>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Modelo.ProfesorRegistroBD"%>
-<%@page import="Modelo.Profesor"%>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Listado  de Materias de los Profesores</title>
+    <title>Crear Universidad</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -18,7 +18,9 @@
         padding-bottom: 40px;
       }
     </style>
-     <div class= "navbar navbar-inverse navbar-fixed-down" >
+    
+    
+    <div class= "navbar navbar-inverse navbar-fixed-down" >
       <div class="navbar-inner">
         <div class="container">
              <span class="icon-bar"></span>
@@ -99,103 +101,72 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- FIN CODIGO FACEBOOK -->
+    
+
   <body>
 
-    <?php include_once "../../menu/m_profesor.php"; ?>
-	<div align="center">
+
+    <div align="center">
     	<table width="90%">
           <tr>
             <td>
             	<table class="table table-bordered">
                   <tr class="well">
                     <td>
-                    	<h1 align="center">Listado  de Materias de los Profesores</h1>
-                        <center>
-                      	<form name="form3" method="get" action="Controlador" class="form-search">
-                            <input type="hidden" name="accion" value="ConsultarMateriaProfesor" />
-                            <div class="input-prepend input-append">
-                                <span class="add-on"><i class="icon-search"></i></span>
-            <input type="text" name="buscar" autocomplete="off" class="input-xxlarge search-query" 
-                                autofocus placeholder="Buscar Profesor por Nombre">
-                            </div>
-                            <button type="submit" class="btn" name="buton"><strong>Buscar</strong></button>
-                    	</form>
-                        </center>
+                    	<h1 align="center">Crear Alumno</h1>
+           
                     </td>
                   </tr>
                 </table>
-                <div align="right">
-                	<a class="btn" href="crear_profesor.php" title="Ingresar nuevo Profesor"><i class="icon-plus"></i> <strong>Crear nueva Profesor</strong></a>
-                </div>
-                <br>
                 <table class="table table-bordered">
-                  <tr class="well">
-                    <td><strong>Cedula</strong></td>
-                    <td><strong>Nombre </strong></td>
-                    <td><strong>Apellido</strong></td>
-                    <td><strong>telefono</strong></td>
-                    <td><strong>Materia</strong></td>
-                    <%-- <td><strong>Editar</strong></td>
-                    <td><strong>Eliminar</strong></td>
-                    <td><strong>Asignar</strong></td>--%>
-
-                  </tr>
-                  <%    
-                        String busca1 = (String)request.getSession().getAttribute("buscarMateriaProfesor");
-                        ArrayList<Profesor> lista1 = ProfesorRegistroBD.obtenerMateriaProfesor(busca1);
-                        for (Profesor po : lista1) {
-                %>
-                 <tr>
-                    <td><%= po.getCedula()%></td>
-                    <td><%= po.getNombre()%></td>
-                    <td><%= po.getApellido()%></td>
-                    <td><%= po.getTelefono()%></td>
-                    <td><%= po.getNom_materia()%></td>
-                    <%-- Enlaces a las paginas de actualizar o anadir al carrito --%>
-                 <%--   <td><a href="actualizarProducto.jsp?id=<%= p.getCodigoProducto()%>">Modificar</a> |
-                        <a href="anadirCarrito.jsp?id=<%= p.getCodigoProducto()%>">Añadir</a>
-                    </td>
-              
-               
-
+                  <tr>
                     <td>
-                    	<center>
-                            <a class="btn btn-mini" href="modificar_profesor.jsp?ced=<%= p.getCedula()%>" title="Editar">
-                                <i class="icon-edit"></i>
-                            </a>
-                        </center>
-                    </td>
+                   	  <form name="form1" method="post" action="../../Controlador">
+                                <div>
+                <input type="hidden" name="accion" value="RegistrarEstudiante" />
+                             
+                        <div align="center"><pre><strong>Informacion Basica</strong></pre></div>
 
-                    <td>
-                                    <center>
-                                        <a href="Controlador?ced=<%= p.getCedula()%>&accion=EliminarProfesor" class="btn btn-mini" title="Remover de la Lista de Compra">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </center>
-                    </td>
-
-                    <td>
-                      <center>
-                            <a class="btn btn-mini" href="Asignar_materia_profesor.jsp?ced=<%= p.getCedula()%>" title="Editar">
-                                <i class="icon-edit"></i>
-                            </a>
-                        </center>
-                    </td>
-                
-                   <div id="r<?php echo $row['cedula_prof']; ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
---%>
-                       </tr>
-                    <%
-                            }
-                    %>
-                  <?php } ?>
-                </table>
-            </td>
-          </tr>
-        </table>
-    </div>
+                          <br></br>
+                        <div class="row-fluid">
+                          <div class="span6" align="center">
+                          	<strong>Codigo</strong><br>
+                               
                   
-   <script src="js/jquery.js"></script>
+                                <input type="text" name="codigo" autocomplete="off" value="<%//p.getCedula();%>"><br>
+                     
+                          </div>
+                          <div class="span6" align="center">
+                          	<strong>Nombre </strong><br>
+                                <input type="text" name="nombre" class="input-xxlarge" autocomplete="off" required value="<%// p.getNombre();%>"><br>
+                          </div>
+                        </div>
+
+                         </div>
+                          <div class="span6" align="center">
+                            <strong>Apellido</strong><br>
+                            <input type="text" name="apellido"  autocomplete="off" required value="<%//p.getApellido();%>"><br>
+                          </div>
+                        </div>
+
+                         </div>
+                          <div class="span6" align="center">
+                            <strong>Telefono</strong><br>
+                            <input type="text" name="telefono"  autocomplete="off" required value="<%//p.getTelefono();%>"><br>
+                          </div>
+                        </div>
+                        
+                        
+
+                          <br></br> <br></br><br></br> 
+                          <div  align="center">
+                          <button type="submit" class="btn btn-primary"><i class="icon-ok"></i> <strong>Aceptar</strong></button>
+                          <button type="reset" class="btn"><i class="icon-remove"></i> <strong>Cancelar</strong></button>
+                        </div>
+                        </form>
+                        
+                     
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap-transition.js"></script>
     <script src="js/bootstrap-alert.js"></script>
     <script src="js/bootstrap-modal.js"></script>

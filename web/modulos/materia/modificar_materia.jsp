@@ -1,17 +1,20 @@
 <%@page import="Modelo.*" %>
 <%@page import="java.util.ArrayList"%>
-
+ <%
+    Materia ma = MateriaRegistroBD.getMateria((String)request.getParameter("ced")); 
+  %>
+    
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Crear Materia</title>
+    <title>Modificar Materia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -32,14 +35,14 @@
           <a class="brand" href="#" style="color:#EB4A52"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">                
-                 <li><a href="Principal.jsp" style="color:#A8BBFB">Inicio</a></li>  
+                 <li><a href="../../principal.jsp" style="color:#A8BBFB">Inicio</a></li>  
                     <li class="dropdown">
 
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Profesor <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="crear_profesor.jsp"><i class="icon-plus"></i>Crear Profesor</a></li>
-                    <li><a href="listado_profesor.jsp"><i class="icon-list"></i>Listado de Profesores</a></li>
-                    <li><a href="Modulos/profesor/listado_profesorMate.php"><i class="icon-list"></i>Listado de Asignar</a></li> 
+                  <li><a href="../profesor/crear_profesor.jsp"><i class="icon-plus"></i>Crear Profesor</a></li>
+                    <li><a href="../profesor/listado_profesor.jsp"><i class="icon-list"></i>Listado de Profesores</a></li>
+                    <li><a href="../profesor/listado_asignar_materia_profesor.jsp"><i class="icon-list"></i>Listado de Asignar</a></li> 
                     <li class="divider"></li>
                
                 </ul>
@@ -49,7 +52,7 @@
 
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Materias <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="crear_materia.jsp"><i class="icon-plus"></i>Crear Materia</a></li>
+                  <li><a href="crear_materia.php"><i class="icon-plus"></i>Crear Materia</a></li>
                     <li><a href="listado_materia.jsp"><i class="icon-list"></i>Listado de Materias</a></li>   
                     <li class="divider"></li>
                      </ul>
@@ -57,9 +60,9 @@
                 <li class="dropdown">
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Alumno <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="crear_estudiante.jsp"><i class="icon-plus"></i>Crear Alumno</a></li>
-                    <li><a href="listado_estudiante.jsp"><i class="icon-list"></i>Listado de Alumno</a></li>
-                  <li><a href="Modulos/alumno/listado_asignarMate.php"><i class="icon-list"></i>Listado de Asignar</a></li>       
+                  <li><a href="../estudiante/crear_estudiante.jsp"><i class="icon-plus"></i>Crear Alumno</a></li>
+                    <li><a href="../estudiante/listado_estudiante.jsp"><i class="icon-list"></i>Listado de Alumno</a></li>
+                  <li><a href="../estudiante/listado_asignar_materia_estudiante.jsp"><i class="icon-list"></i>Listado de Asignar</a></li>       
                     <li class="divider"></li>
                 </ul>
               </li>
@@ -67,14 +70,13 @@
             <ul class="nav pull-right">
                 <li class="dropdown">
               		<a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">
-                    		Hola! <%String sec = (String)session.getAttribute ("abre_sesion");
-                        out.println(" "+sec);%> <b class="caret"></b>
+                    	Hola! <?php echo $_SESSION['user_name']; ?> <b class="caret"></b>
                     </a>
                 	<ul class="dropdown-menu">
-                            <li><a href="perfil.php">
-                     <%--  <i class="icon-user"></i> Mi Perfil</a></li>  --%>
+	                   <li><a href="../usuarios/perfil.jsp">
+                      <i class="icon-user"></i> Mi Perfil</a></li>
                       	<li class="divider"></li>
-                      	<li><a href="cerrar_sesion.jsp">
+                      <li><a href="../usuarios/cerrar_sesion.jsp">
                         <i class="icon-off"></i> Salir</a></li>
                     </ul>
                 </li>
@@ -113,7 +115,7 @@
             	<table class="table table-bordered">
                   <tr class="well">
                     <td>
-                    	<h1 align="center">Crear Materia</h1>
+                    	<h1 align="center">Modificar Materia</h1>
            
                     </td>
                   </tr>
@@ -121,11 +123,11 @@
                 <table class="table table-bordered">
                   <tr>
                     <td>
-                   	  <form name="form1" method="post" action="Controlador">
+                   	  <form name="form1" method="post" action="../../Controlador">
                                 <div>
-                <input type="hidden" name="accion" value="RegistrarMateria" />
+                <input type="hidden" name="accion" value="ModificarMateria" />
                              
-                        <div align="center"><pre><strong>Informacion Basica</strong></pre></div>
+                       <div align="center"><pre><strong>Informacion Basica</strong></pre></div>
 
                           <br></br>
                         <div class="row-fluid">
@@ -133,33 +135,33 @@
                           	<strong>Codigo</strong><br>
                                
                   
-                                <input type="text" name="codigo" autocomplete="off" value="<%//p.getCedula();%>"><br>
+                                <input type="text" name="codigo" autocomplete="off" value="<%= ma.getCodigo()%>" readonly><br>
                      
                           </div>
                           <div class="span6" align="center">
                           	<strong>Nombre </strong><br>
-                                <input type="text" name="nombre" class="input-xxlarge" autocomplete="off" required value="<%// p.getNombre();%>"><br>
+                                <input type="text" name="nombre" class="input-xxlarge" autocomplete="off" required value="<%= ma.getNombre() %>"><br>
                           </div>
                         </div>
 
                          </div>
                           <div class="span6" align="center">
                             <strong>Descripsion</strong><br>
-                            <input type="text" name="descripcion"  autocomplete="off" required value="<%//p.getApellido();%>"><br>
+                            <input type="text" name="descripcion"  autocomplete="off" required value="<%= ma.getDescripsion()%>"><br>
                           </div>
                         </div>
 
                          </div>
                           <div class="span6" align="center">
                             <strong>intesisdad Horaria</strong><br>
-                            <input type="text" name="horario"  autocomplete="off" required value="<%//p.getTelefono();%>"><br>
+                            <input type="text" name="horario"  autocomplete="off" required value="<%= ma.getInt_horario() %>"><br>
                           </div>
                         </div>
                         
                          </div>
                           <div class="span6" align="center">
                             <strong>Numero de Creditos</strong><br>
-                            <input type="text" name="creditos"  autocomplete="off" required value="<%//p.getTelefono();%>"><br>
+                            <input type="text" name="creditos"  autocomplete="off" required value="<%= ma.getN_creditos()%>"><br>
                           </div>
                         </div>
                         
@@ -172,7 +174,7 @@
                         </div>
                         </form>
                         
-                     
+                       
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap-transition.js"></script>
     <script src="js/bootstrap-alert.js"></script>

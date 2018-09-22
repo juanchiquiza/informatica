@@ -1,5 +1,3 @@
-<%@page import="Modelo.Estudiante"%>
-<%@page import="Modelo.EstudianteRegistroBD"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Modelo.ProfesorRegistroBD"%>
 <%@page import="Modelo.Profesor"%>
@@ -7,20 +5,19 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Listado  de Estudiantes</title>
+    <title>Listado  de Profesores</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
-     
     <div class= "navbar navbar-inverse navbar-fixed-down" >
       <div class="navbar-inner">
         <div class="container">
@@ -33,14 +30,14 @@
           <a class="brand" href="#" style="color:#EB4A52"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">                
-                 <li><a href="Principal.jsp" style="color:#A8BBFB">Inicio</a></li>  
+                 <li><a href="../../principal.jsp" style="color:#A8BBFB">Inicio</a></li>  
                     <li class="dropdown">
 
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Profesor <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="crear_profesor.jsp"><i class="icon-plus"></i>Crear Profesor</a></li>
                     <li><a href="listado_profesor.jsp"><i class="icon-list"></i>Listado de Profesores</a></li>
-                    <li><a href="Modulos/profesor/listado_profesorMate.php"><i class="icon-list"></i>Listado de Asignar</a></li> 
+                    <li><a href="listado_asignar_materia_profesor.jsp"><i class="icon-list"></i>Listado de Asignar</a></li> 
                     <li class="divider"></li>
                
                 </ul>
@@ -50,17 +47,17 @@
 
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Materias <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="Modulos/materia/crear_materia.php"><i class="icon-plus"></i>Crear Materia</a></li>
-                    <li><a href="Modulos/materia/listado_materia.php"><i class="icon-list"></i>Listado de Materias</a></li>   
+                  <li><a href="../materia/crear_materia.jsp"><i class="icon-plus"></i>Crear Materia</a></li>
+                    <li><a href="../materia/listado_materia.jsp"><i class="icon-list"></i>Listado de Materias</a></li>   
                     <li class="divider"></li>
                      </ul>
               </li>
                 <li class="dropdown">
                 <a href="#" style="color:#A8BBFB" class="dropdown-toggle" data-toggle="dropdown">Alumno <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="crear_estudiante.jsp"><i class="icon-plus"></i>Crear Alumno</a></li>
-                    <li><a href="listado_estudiante.jsp"><i class="icon-list"></i>Listado de Alumno</a></li>
-                  <li><a href="Modulos/alumno/listado_asignarMate.php"><i class="icon-list"></i>Listado de Asignar</a></li>       
+                  <li><a href="../estudiante/crear_estudiante.jsp"><i class="icon-plus"></i>Crear Alumno</a></li>
+                    <li><a href="../estudiante/listado_estudiante.jsp"><i class="icon-list"></i>Listado de Alumno</a></li>
+                  <li><a href="../estudiante/listado_asignar_materia_estudiante.jsp"><i class="icon-list"></i>Listado de Asignar</a></li>       
                     <li class="divider"></li>
                 </ul>
               </li>
@@ -72,10 +69,10 @@
                         out.println(" "+sec);%> <b class="caret"></b>
                     </a>
                 	<ul class="dropdown-menu">
-                            <li><a href="perfil.php">
-                     <%--  <i class="icon-user"></i> Mi Perfil</a></li>  --%>
+                            <li><a href="../usuarios/perfil.jsp">
+                            <i class="icon-user"></i> Mi Perfil</a></li>  
                       	<li class="divider"></li>
-                      	<li><a href="cerrar_sesion.jsp">
+                      	<li><a href="../estudiante/cerrar_sesion.jsp">
                         <i class="icon-off"></i> Salir</a></li>
                     </ul>
                 </li>
@@ -85,12 +82,12 @@
       </div>
     </div>
 
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../../css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="img/udec.jpg">
+	<link rel="shortcut icon" href="../../img/distrital.png">
   </head>
   <!-- FACEBOOK COMENTARIOS -->
 	<div id="fb-root"></div>
@@ -104,7 +101,6 @@
     <!-- FIN CODIGO FACEBOOK -->
   <body>
 
-    <?php include_once "../../menu/m_profesor.php"; ?>
 	<div align="center">
     	<table width="90%">
           <tr>
@@ -112,14 +108,14 @@
             	<table class="table table-bordered">
                   <tr class="well">
                     <td>
-                    	<h1 align="center">Listado de Estudiantes</h1>
+                    	<h1 align="center">Listado de Profesores</h1>
                         <center>
-                      	<form name="form3" method="get" action="Controlador" class="form-search">
-                            <input type="hidden" name="accion" value="ConsultarEstudiante" />
+                      	<form name="form3" method="get" action="../../Controlador" class="form-search">
+                            <input type="hidden" name="accion" value="ConsultarProfesor" />
                             <div class="input-prepend input-append">
                                 <span class="add-on"><i class="icon-search"></i></span>
                                 <input type="text" name="buscar" autocomplete="off" class="input-xxlarge search-query" 
-                                autofocus placeholder="Buscar Estudiante por Nombre">
+                                autofocus placeholder="Buscar Profesor por Nombre">
                             </div>
                             <button type="submit" class="btn" name="buton"><strong>Buscar</strong></button>
                     	</form>
@@ -128,12 +124,12 @@
                   </tr>
                 </table>
                 <div align="right">
-                	<a class="btn" href="crear_estudiante.jsp" title="Ingresar nuevo estudiante"><i class="icon-plus"></i> <strong>Crear nuevo Estudiante</strong></a>
+                	<a class="btn" href="crear_profesor.php" title="Ingresar nuevo Profesor"><i class="icon-plus"></i> <strong>Crear nueva Profesor</strong></a>
                 </div>
                 <br>
                 <table class="table table-bordered">
                   <tr class="well">
-                    <td><strong>Codigo</strong></td>
+                    <td><strong>Cedula</strong></td>
                     <td><strong>Nombre </strong></td>
                     <td><strong>Apellido</strong></td>
                     <td><strong>telefono</strong></td>
@@ -143,25 +139,19 @@
 
                   </tr>
                   <%    
-                            String buscar = (String)request.getSession().getAttribute("buscarEstudiante");
-                            ArrayList<Estudiante> listar = EstudianteRegistroBD.obtenerEstudiante(buscar);
-                            for (Estudiante e : listar) {
-                %>
+                            String busca = (String)request.getSession().getAttribute("buscarProfesor");
+                            ArrayList<Profesor> lista = ProfesorRegistroBD.obtenerProfesor(busca);
+                            for (Profesor p : lista) {
+                  %>
                  <tr>
-                    <td><%= e.getCodigo()%></td>
-                    <td><%= e.getNombre()%></td>
-                    <td><%= e.getApellido()%></td>
-                    <td><%= e.getTelefono()%></td>
-                    <%-- Enlaces a las paginas de actualizar o anadir al carrito --%>
-                 <%--   <td><a href="actualizarProducto.jsp?id=<%= p.getCodigoProducto()%>">Modificar</a> |
-                        <a href="anadirCarrito.jsp?id=<%= p.getCodigoProducto()%>">Añadir</a>
-                    </td>--%>
-              
-               
-
+                    <td><%= p.getCedula()%></td>
+                    <td><%= p.getNombre()%></td>
+                    <td><%= p.getApellido()%></td>
+                    <td><%= p.getTelefono()%></td>
+                   
                     <td>
                     	<center>
-                            <a class="btn btn-mini" href="modificar_estudiante.jsp?ced=<%= e.getCodigo()%>" title="Editar">
+                            <a class="btn btn-mini" href="modificar_profesor.jsp?ced=<%= p.getCedula()%>" title="Editar">
                                 <i class="icon-edit"></i>
                             </a>
                         </center>
@@ -169,7 +159,7 @@
 
                     <td>
                                     <center>
-                                        <a href="Controlador?ced=<%= e.getCodigo()%>&accion=EliminarEstudiante" class="btn btn-mini" title="Remover de la Lista de Compra">
+                                        <a href="../../Controlador?ced=<%= p.getCedula()%>&accion=EliminarProfesor" class="btn btn-mini" title="Remover de la Lista de Compra">
                                             <i class="icon-remove"></i>
                                         </a>
                                     </center>
@@ -177,7 +167,7 @@
 
                     <td>
                       <center>
-                            <a class="btn btn-mini" href="Asignar_materia_alumno.jsp?ced=<%= e.getCodigo()%>" title="Editar">
+                            <a class="btn btn-mini" href="asignar_materia_profesor.jsp?ced=<%= p.getCedula()%>" title="Editar">
                                 <i class="icon-edit"></i>
                             </a>
                         </center>
@@ -194,59 +184,20 @@
           </tr>
         </table>
     </div>
-              <%--       
-                  
-                   <div>
-            <table border="1">
-                <tr style="background-color: chocolate">
-                    <td colspan="4">Lista de Productos</td>
-
-                </tr>
-                <tr style="background-color: chocolate">
-                    <td>Codigo</td>
-                    <td>Nombre</td>
-                    <td>Precio</td>
-                    <td>Proceso</td>
-                </tr>
-              Lista de todos los productos 
-                <%
-                           // ArrayList<Profesor> lista = ProfesorRegistroBD.obtenerProfesor("");
-                            //for (Profesor p : lista) {
-                %>
-                <tr>
-                    <td><%= p.getCedula()%></td>
-                    <td><%= p.getNombre()%></td>
-                    <td><%= p.getApellido()%></td>
-                    <td><%= p.getTelefono()%></td>
-                    <%-- Enlaces a las paginas de actualizar o anadir al carrito --%>
-                 <%--   <td><a href="actualizarProducto.jsp?id=<%= p.getCodigoProducto()%>">Modificar</a> |
-                        <a href="anadirCarrito.jsp?id=<%= p.getCodigoProducto()%>">Añadir</a>
-                    </td>
-                </tr>
-                <%
-                            }
-                %>
-
-            </table>
-        </div>--%>
-    <!-- Le javascript ../../js/jquery.js
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-                        
-                     
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+             
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap-transition.js"></script>
+    <script src="../../js/bootstrap-alert.js"></script>
+    <script src="../../js/bootstrap-modal.js"></script>
+    <script src="../../js/bootstrap-dropdown.js"></script>
+    <script src="../../js/bootstrap-scrollspy.js"></script>
+    <script src="../../js/bootstrap-tab.js"></script>
+    <script src="../../js/bootstrap-tooltip.js"></script>
+    <script src="../../js/bootstrap-popover.js"></script>
+    <script src="../../js/bootstrap-button.js"></script>
+    <script src="../../js/bootstrap-collapse.js"></script>
+    <script src="../../js/bootstrap-carousel.js"></script>
+    <script src="../../js/bootstrap-typeahead.js"></script>
 
   </body>
 </html>
