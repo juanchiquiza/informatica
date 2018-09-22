@@ -14,6 +14,7 @@ String user = "postgres"; // usuario postgres
 String password = "postgres"; // no tiene password nuestra bd. 
         try {
             Class.forName("org.postgresql.Driver");
+            
            //Class.forName("jdbc:postgresql://localhost:5432/postgres\");
             
           //  conectar=DriverManager.getConnection("jdbc:mysql://localhost/bodega","root","");
