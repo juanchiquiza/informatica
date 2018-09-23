@@ -86,7 +86,7 @@ public class Controlador extends HttpServlet {
         et.setMateria(request.getParameter("materia")); 
         EstudianteRegistroBD ets = new EstudianteRegistroBD();
         boolean rpta = ets.insertar_Materia_Alumno(et);
-        response.sendRedirect("modulos/profesor/asignar_materia_profesor.jsp?men=Se registro la materia al alumno de manera correcta");
+        response.sendRedirect("modulos/estudiante/asignar_materia_alumno.jsp?men=Se registro la materia al alumno de manera correcta");
 
     }
     

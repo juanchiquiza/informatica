@@ -7,7 +7,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Listado  de Materias de los Profesores</title>
+    <title>Listado  de Materias a los estudiantes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -110,7 +110,7 @@
             	<table class="table table-bordered">
                   <tr class="well">
                     <td>
-                    	<h1 align="center">Listado  de Materias de los Profesores</h1>
+                    	<h1 align="center">Listado  de Materias de los estudiantesna</h1>
                         <center>
                       	<form name="form3" method="get" action="../../Controlador" class="form-search">
                             <input type="hidden" name="accion" value="ConsultarMateriaEstudiante" />
