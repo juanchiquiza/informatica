@@ -69,6 +69,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="modulos/usuarios/perfil.jsp">
                       <i class="icon-user"></i> Mi Perfil</a></li>
+                       <!--<li><a href="modulos/usuarios/crearUsuario.jsp">
+                      <i class="icon-user"></i> Crear Usuarios</a></li>
+                       -->
                       	<li class="divider"></li>
                       	<li><a href="index.jsp">
                         <i class="icon-off"></i> Salir</a></li>

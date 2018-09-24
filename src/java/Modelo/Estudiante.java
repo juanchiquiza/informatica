@@ -8,7 +8,7 @@ package Modelo;
  *
  * @author juan
  */
-public class Estudiante {
+public class Estudiante extends Usuario{
     
     private String codigo;
     private String nota;

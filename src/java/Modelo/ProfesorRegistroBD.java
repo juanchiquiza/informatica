@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +22,9 @@ public class ProfesorRegistroBD {
      
     public boolean insertarProfesor(Profesor p){
       try {
+             Date creacion = new Date();
+        
+
             conectar cc = new conectar();
             Connection cn= cc.conexion();
     
@@ -30,7 +35,15 @@ public class ProfesorRegistroBD {
             pst.setString(4, p.getTelefono());
           
             pst.executeUpdate();
-           
+            PreparedStatement pst1 = cn.prepareStatement("INSERT INTO username(id,usu,con,correo,fecha,tipo) VALUES (?,?,?,?,?,?)");
+            pst1.setInt(1, Integer.parseInt(p.getCedula()));
+            pst1.setString(2, p.getCedula());
+            pst1.setString(3, p.getCedula());
+            pst1.setString(4, "");
+            pst1.setDate(5, java.sql.Date.valueOf("2013-09-04"));
+            pst1.setString(6, "C");
+            pst1.executeUpdate();
+            
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }

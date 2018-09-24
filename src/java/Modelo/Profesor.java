@@ -2,7 +2,7 @@ package Modelo;
 
 
  
-public class Profesor {
+public class Profesor extends Usuario{
     //Las columnas que tiene la tabla Producto
     
     private String cedula;

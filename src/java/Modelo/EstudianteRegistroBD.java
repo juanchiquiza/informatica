@@ -29,6 +29,14 @@ public class EstudianteRegistroBD {
             pst.setString(4, e.getTelefono());
           
             pst.executeUpdate();
+            PreparedStatement pst1 = cn.prepareStatement("INSERT INTO username(id,usu,con,correo,fecha,tipo) VALUES (?,?,?,?,?,?)");
+            pst1.setInt(1, Integer.parseInt(e.getCodigo()));
+            pst1.setString(2, e.getCodigo());
+            pst1.setString(3, e.getCodigo());
+            pst1.setString(4, "");
+            pst1.setDate(5, java.sql.Date.valueOf("2013-09-04"));
+            pst1.setString(6, "E");
+            pst1.executeUpdate();
            
         } catch (Exception es) {
             System.out.print(es.getMessage());
