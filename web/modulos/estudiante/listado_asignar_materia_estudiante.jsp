@@ -1,7 +1,6 @@
-<%@page import="Modelo.EstudianteRegistroBD"%>
+<%@page import="Modelo.*"%>
 <%@page import="Modelo.Estudiante"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Modelo.ProfesorRegistroBD"%>
 <%@page import="Modelo.Profesor"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -141,7 +140,7 @@
                   </tr>
                   <%    
                         String busca1 = (String)request.getSession().getAttribute("buscarMateriaEstudiante");
-                        ArrayList<Estudiante> list = EstudianteRegistroBD.obtenerMateriaEstudiante(busca1);
+                        ArrayList<Estudiante> list = ProviderDB.obtenerMateriaEstudiante(busca1);
                         for (Estudiante est : list) {
                 %>
                  <tr>

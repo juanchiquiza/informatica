@@ -1,6 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="Modelo.ProfesorRegistroBD"%>
-<%@page import="Modelo.Profesor"%>
+<%@page import="Modelo.*"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -140,7 +139,7 @@
                   </tr>
                   <%    
                             String busca = (String)request.getSession().getAttribute("buscarProfesor");
-                            ArrayList<Profesor> lista = ProfesorRegistroBD.obtenerProfesor(busca);
+                            ArrayList<Profesor> lista = ProviderDB.obtenerProfesor(busca);
                             for (Profesor p : lista) {
                   %>
                  <tr>

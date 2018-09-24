@@ -4,7 +4,7 @@
 <%@page import="Modelo.*" %>
 <%@page import="java.util.ArrayList"%>
  <%
-    Profesor p = ProfesorRegistroBD.getProfesor((String)request.getParameter("ced")); 
+    Profesor p = ProviderDB.getProfesor((String)request.getParameter("ced")); 
      
   %>
     
@@ -167,7 +167,7 @@
                           <div class="span6" align="center">
                             <strong>Materia</strong><br>
 <%
-                                conectar cc = new conectar();
+                                ProviderDB cc = new ProviderDB();
         Connection cn= cc.conexion();
                                String sql="SELECT cod_materia,nom_materia FROM  materia ";
         

@@ -1,10 +1,10 @@
 package Controlador;
 
 import Modelo.Estudiante;
-import Modelo.EstudianteRegistroBD;
+import Modelo.ProviderDB;
 import Modelo.Materia;
-import Modelo.MateriaRegistroBD;
-import Modelo.ProfesorRegistroBD;
+import Modelo.ProviderDB;
+import Modelo.ProviderDB;
 import Modelo.Profesor;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -84,7 +84,7 @@ public class Controlador extends HttpServlet {
        // p.setNombre(request.getParameter("nombre")); 
         et.setNota(request.getParameter("nota")); 
         et.setMateria(request.getParameter("materia")); 
-        EstudianteRegistroBD ets = new EstudianteRegistroBD();
+        ProviderDB ets = new ProviderDB();
         boolean rpta = ets.insertar_Materia_Alumno(et);
         response.sendRedirect("modulos/estudiante/asignar_materia_alumno.jsp?men=Se registro la materia al alumno de manera correcta");
 
@@ -105,7 +105,7 @@ public class Controlador extends HttpServlet {
        // p.setNombre(request.getParameter("nombre")); 
       //  p.setApellido(request.getParameter("apellido")); 
         p.setMateria(request.getParameter("materia")); 
-        ProfesorRegistroBD pro = new ProfesorRegistroBD();
+        ProviderDB pro = new ProviderDB();
         boolean rpta = pro.insertar_Materia_Profesor(p);
         response.sendRedirect("modulos/profesor/listado_profesor.jsp?men=Se registro la materia al profesor de manera correcta");
 
@@ -116,7 +116,7 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
         Materia ma = new Materia();
         ma.setCodigo(request.getParameter("ced"));    
-        MateriaRegistroBD mat = new MateriaRegistroBD();
+        ProviderDB mat = new ProviderDB();
         boolean rpta = mat.eliminarMateria(ma);
      
         response.sendRedirect("modulos/materia/listado_materia.jsp?men=Se elimino la materia de manera correcta");
@@ -129,7 +129,7 @@ public class Controlador extends HttpServlet {
         ma.setDescripsion(request.getParameter("descripcion")); 
         ma.setN_creditos(request.getParameter("creditos"));
         ma.setInt_horario(request.getParameter("horario")); 
-        MateriaRegistroBD mat = new MateriaRegistroBD();
+        ProviderDB mat = new ProviderDB();
         boolean rpta = mat.actualizaMateria(ma);
         response.sendRedirect("modulos/materia/crear_materia.jsp?men=Se modifico la materia de manera correcta");
 
@@ -149,7 +149,7 @@ public class Controlador extends HttpServlet {
         ma.setDescripsion(request.getParameter("descripcion")); 
         ma.setN_creditos(request.getParameter("creditos"));
         ma.setInt_horario(request.getParameter("horario")); 
-        MateriaRegistroBD mat = new MateriaRegistroBD();
+        ProviderDB mat = new ProviderDB();
         boolean rpta = mat.insertarMateria(ma);
         response.sendRedirect("modulos/materia/crear_materia.jsp?men=Se registro la materia de manera correcta");
 
@@ -161,7 +161,7 @@ public class Controlador extends HttpServlet {
         e.setNombre(request.getParameter("nombre")); 
         e.setApellido(request.getParameter("apellido")); 
         e.setTelefono(request.getParameter("telefono")); 
-        EstudianteRegistroBD est = new EstudianteRegistroBD();
+        ProviderDB est = new ProviderDB();
         boolean rpta = est.insertarEstudiante(e);
         response.sendRedirect("modulos/estudiante/crear_estudiante.jsp?men=Se registro el estudiante de manera correcta");
 
@@ -181,7 +181,7 @@ public class Controlador extends HttpServlet {
        
         e.setCodigo(request.getParameter("ced"));    
        
-        EstudianteRegistroBD est = new EstudianteRegistroBD();
+        ProviderDB est = new ProviderDB();
         boolean rpta = est.eliminarEstudiante(e);
      
         response.sendRedirect("modulos/estudiante/listado_estudiante.jsp?men=Se elimino el alumno de manera correcta");
@@ -195,7 +195,7 @@ public class Controlador extends HttpServlet {
         e.setNombre(request.getParameter("nombre")); 
         e.setApellido(request.getParameter("apellido")); 
         e.setTelefono(request.getParameter("telefono")); 
-        EstudianteRegistroBD est = new EstudianteRegistroBD();
+        ProviderDB est = new ProviderDB();
         boolean rpta = est.actualizaEstudiante(e);
         response.sendRedirect("modulos/estudiante/crear_estudiante.jsp?men=Se modifico el alumno de manera correcta");
 
@@ -209,7 +209,7 @@ public class Controlador extends HttpServlet {
         p.setNombre(request.getParameter("nombre")); 
         p.setApellido(request.getParameter("apellido")); 
         p.setTelefono(request.getParameter("telefono")); 
-        ProfesorRegistroBD pro = new ProfesorRegistroBD();
+        ProviderDB pro = new ProviderDB();
         boolean rpta = pro.insertarProfesor(p);
         response.sendRedirect("modulos/profesor/crear_profesor.jsp?men=Se registro el profesor de manera correcta");
 
@@ -232,7 +232,7 @@ public class Controlador extends HttpServlet {
         p.setNombre(request.getParameter("nombre")); 
         p.setApellido(request.getParameter("apellido")); 
         p.setTelefono(request.getParameter("telefono")); 
-        ProfesorRegistroBD pro = new ProfesorRegistroBD();
+        ProviderDB pro = new ProviderDB();
         boolean rpta = pro.actualizaProfesor(p);
         response.sendRedirect("modulos/profesor/crear_profesor.jsp?men=Se modificoo el profesor de manera correcta");
 
@@ -244,7 +244,7 @@ public class Controlador extends HttpServlet {
        
         p.setCedula(request.getParameter("ced"));    
        
-        ProfesorRegistroBD pro = new ProfesorRegistroBD();
+        ProviderDB pro = new ProviderDB();
         boolean rpta = pro.eliminarProfesor(p);
      
         response.sendRedirect("modulos/profesor/listado_profesor.jsp?men=Se elimino el profesor de manera correcta");

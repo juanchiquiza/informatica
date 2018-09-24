@@ -1,7 +1,7 @@
 <%@page import="Modelo.*" %>
 <%@page import="java.util.ArrayList"%>
  <%
-    Estudiante e = EstudianteRegistroBD.getEstudiante((String)request.getParameter("ced")); 
+    Estudiante e = ProviderDB.getEstudiante((String)request.getParameter("ced")); 
  %>
     
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <%@page language="java" import="java.io.*,java.sql.*,javax.sql.*,javax.naming.*" %> 
-<%@ page language="java" import="Modelo.conectar" %> 
+<%@ page language="java" import="Modelo.ProviderDB" %> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,8 +14,8 @@ String password1 = request.getParameter("con");
 String nombre = null;
 String usuario = null;
 String contrasena = null;
- conectar cc = new conectar();
-        Connection cn= cc.conexion();
+ProviderDB cc = new ProviderDB();
+Connection cn= cc.conexion();
 try {
    
     Statement st = cn.createStatement();

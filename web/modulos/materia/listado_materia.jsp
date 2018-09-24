@@ -1,9 +1,7 @@
 <%@page import="Modelo.Materia"%>
-<%@page import="Modelo.MateriaRegistroBD"%>
+<%@page import="Modelo.*"%>
 <%@page import="Modelo.Estudiante"%>
-<%@page import="Modelo.EstudianteRegistroBD"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Modelo.ProfesorRegistroBD"%>
 <%@page import="Modelo.Profesor"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -147,7 +145,7 @@
                   </tr>
                   <%    
                             String buscarm = (String)request.getSession().getAttribute("buscarMateria");
-                            ArrayList<Materia> listarm = MateriaRegistroBD.obtenerMateria(buscarm);
+                            ArrayList<Materia> listarm = ProviderDB.obtenerMateria(buscarm);
                             for (Materia ma : listarm) {
                 %>
                  <tr>

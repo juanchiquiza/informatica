@@ -1,7 +1,7 @@
 <%@page import="Modelo.*" %>
 <%@page import="java.util.ArrayList"%>
  <%
-    Profesor p = ProfesorRegistroBD.getProfesor((String)request.getParameter("ced")); 
+    Profesor p = ProviderDB.getProfesor((String)request.getParameter("ced")); 
   %>
     
 <!DOCTYPE html>

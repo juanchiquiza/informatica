@@ -20,6 +20,12 @@ cod_materi varchar(100),
 cedula_pro varchar(100),
 PRIMARY KEY (cod_materi,cedula_pro));
 
+create table materia_estudiante(
+cod_materi varchar(100),
+codigo_es varchar(100),
+nota varchar(100),
+PRIMARY KEY (cod_materi,codigo_es));
+
  alter table materia_profesor
  add constraint FK_cod_materi
   foreign key (cod_materi)
