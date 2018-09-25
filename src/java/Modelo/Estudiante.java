@@ -92,4 +92,7 @@ public class Estudiante extends Usuario{
     private String apellido;
     private String telefono;
     
+    public String pageEliminate() {
+        return "modulos/estudiante/listado_estudiante.jsp";
+    }
 }

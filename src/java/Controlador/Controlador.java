@@ -3,11 +3,8 @@ package Controlador;
 import Modelo.Estudiante;
 import Modelo.ProviderDB;
 import Modelo.Materia;
-import Modelo.ProviderDB;
-import Modelo.ProviderDB;
 import Modelo.Profesor;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -119,7 +116,7 @@ public class Controlador extends HttpServlet {
         ProviderDB mat = new ProviderDB();
         boolean rpta = mat.eliminarMateria(ma);
      
-        response.sendRedirect("modulos/materia/listado_materia.jsp?men=Se elimino la materia de manera correcta");
+        response.sendRedirect(ma.pageEliminate() + "?men=Se elimino la materia de manera correcta");
     }
     private void ModificarMateria(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -184,7 +181,7 @@ public class Controlador extends HttpServlet {
         ProviderDB est = new ProviderDB();
         boolean rpta = est.eliminarEstudiante(e);
      
-        response.sendRedirect("modulos/estudiante/listado_estudiante.jsp?men=Se elimino el alumno de manera correcta");
+        response.sendRedirect(e.pageEliminate() + "?men=Se elimino el alumno de manera correcta");
     }
      
      private void modificarEstudiante(HttpServletRequest request, HttpServletResponse response)

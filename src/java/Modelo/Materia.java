@@ -71,5 +71,9 @@ public class Materia {
     public void setProfesor(String profesor) {
         this.profesor = profesor;
     }
+
+    public String pageEliminate() {
+        return "modulos/materia/listado_materia.jsp";
+    }
     
 }
