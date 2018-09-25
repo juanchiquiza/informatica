@@ -60,7 +60,7 @@ public class  ProviderDB {
             Connection cn= cc.conexion();
     
             PreparedStatement pst = cn.prepareStatement("INSERT INTO materia_estudiante(cod_materi,codigo_es,nota) VALUES (?,?,?)");
-            pst.setString(1, e.getMateria());
+            pst.setString(1, e.getNom_materia());
             pst.setString(2, e.getCodigo());
             pst.setString(3, e.getNota());
                      

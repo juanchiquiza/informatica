@@ -80,7 +80,7 @@ public class Controlador extends HttpServlet {
         et.setCodigo(request.getParameter("cedula"));    
        // p.setNombre(request.getParameter("nombre")); 
         et.setNota(request.getParameter("nota")); 
-        et.setMateria(request.getParameter("materia")); 
+        et.setNom_materia(request.getParameter("materia")); 
         ProviderDB ets = new ProviderDB();
         boolean rpta = ets.insertar_Materia_Alumno(et);
         response.sendRedirect("modulos/estudiante/asignar_materia_alumno.jsp?men=Se registro la materia al alumno de manera correcta");

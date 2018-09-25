@@ -12,7 +12,7 @@ public class Estudiante extends Usuario{
     
     private String codigo;
     private String nota;
-    private String Materia;
+   // private String Materia;
     private String Nom_materia;
     
     public Estudiante(){
@@ -24,12 +24,12 @@ public class Estudiante extends Usuario{
         this.apellido = apellido;
         this.telefono = telefono;
     }
-     public Estudiante(String codigo, String nombre, String apellido, String telefono, String materia, String nota){
+     public Estudiante(String codigo, String nombre, String apellido, String telefono, String Nom_materia, String nota){
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.Materia = materia;
+        this.Nom_materia = Nom_materia;
         this.nota = nota;
     }
 
@@ -41,13 +41,13 @@ public class Estudiante extends Usuario{
         this.Nom_materia = Nom_materia;
     }
 
-    public String getMateria() {
+    /*public String getMateria() {
         return Materia;
     }
 
     public void setMateria(String Materia) {
         this.Materia = Materia;
-    }
+    }*/
 
     public String getNota() {
         return nota;
