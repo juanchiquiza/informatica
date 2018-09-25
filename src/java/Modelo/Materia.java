@@ -4,6 +4,8 @@
  */
 package Modelo;
 
+import java.util.List;
+
 /**
  *
  * @author juan
@@ -17,7 +19,8 @@ public class Materia {
     private String descripsion;
     private String Int_horario;
     private String N_creditos;
-    private String profesor;
+    private Profesor profesor;
+    private Estudiante[] estudiantes = new Estudiante[30];
 
     public String getCodigo() {
         return codigo;
@@ -61,16 +64,31 @@ public class Materia {
         /**
      * @return the profesor
      */
-    public String getProfesor() {
+    public Profesor getProfesor() {
         return profesor;
     }
 
     /**
      * @param profesor the profesor to set
      */
-    public void setProfesor(String profesor) {
+    public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
+    
+    /**
+     * @return the estudiantes
+     */
+    public Estudiante[] getEstudiantes() {
+        return estudiantes;
+    }
+
+    /**
+     * @param estudiantes the estudiantes to set
+     */
+    public void setEstudiantes(Estudiante[] estudiantes) {
+        this.estudiantes = estudiantes;
+    }
+
 
     public String pageEliminate() {
         return "modulos/materia/listado_materia.jsp";
