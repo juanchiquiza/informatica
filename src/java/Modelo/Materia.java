@@ -9,12 +9,15 @@ package Modelo;
  * @author juan
  */
 public class Materia {
+
+
     
     private String codigo;
     private String nombre;
     private String descripsion;
     private String Int_horario;
     private String N_creditos;
+    private String profesor;
 
     public String getCodigo() {
         return codigo;
@@ -55,6 +58,18 @@ public class Materia {
     public void setN_creditos(String N_creditos) {
         this.N_creditos = N_creditos;
     }
-     
+        /**
+     * @return the profesor
+     */
+    public String getProfesor() {
+        return profesor;
+    }
+
+    /**
+     * @param profesor the profesor to set
+     */
+    public void setProfesor(String profesor) {
+        this.profesor = profesor;
+    }
     
 }
