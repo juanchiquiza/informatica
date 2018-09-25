@@ -14,6 +14,24 @@ public class Estudiante extends Usuario{
     private String nota;
     private String Materia;
     private String Nom_materia;
+    
+    public Estudiante(){
+    }
+    
+    public Estudiante(String codigo, String nombre, String apellido, String telefono){
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+     public Estudiante(String codigo, String nombre, String apellido, String telefono, String materia, String nota){
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.Materia = materia;
+        this.nota = nota;
+    }
 
     public String getNom_materia() {
         return Nom_materia;
@@ -30,8 +48,6 @@ public class Estudiante extends Usuario{
     public void setMateria(String Materia) {
         this.Materia = Materia;
     }
-
-    
 
     public String getNota() {
         return nota;

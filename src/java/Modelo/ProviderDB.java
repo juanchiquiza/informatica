@@ -91,14 +91,12 @@ public class  ProviderDB {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             
-           
-           
             while(rs.next()){
-                Estudiante estudiante = new Estudiante();
-                estudiante.setCodigo(rs.getString(1)); 
+                Estudiante estudiante = new Estudiante(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(2));
+               /* estudiante.setCodigo(rs.getString(1)); 
                 estudiante.setNombre(rs.getString(2));
                 estudiante.setApellido(rs.getString(3));
-                estudiante.setTelefono(rs.getString(4));
+                estudiante.setTelefono(rs.getString(4));*/
                 listar.add(estudiante);              
             }           
         } catch (SQLException ex) {
@@ -129,13 +127,13 @@ public class  ProviderDB {
            
            
             while(rs.next()){
-                Estudiante estudiante = new Estudiante();
-                estudiante.setCodigo(rs.getString(1)); 
+                Estudiante estudiante = new Estudiante(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6));
+               /* estudiante.setCodigo(rs.getString(1)); 
                 estudiante.setNombre(rs.getString(2));
                 estudiante.setApellido(rs.getString(3));
                 estudiante.setTelefono(rs.getString(4));
                 estudiante.setNom_materia(rs.getString(5));
-                estudiante.setNota(rs.getString(6));
+                estudiante.setNota(rs.getString(6));*/
                
                 listar.add(estudiante);              
             }           
