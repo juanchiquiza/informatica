@@ -5,10 +5,6 @@
  */
 package Modelo;
 
-/**
- *
- * @author juanK
- */
 public interface MateriaAlumno {
     
     public void asignarMateriaAlumno(Estudiante e);
