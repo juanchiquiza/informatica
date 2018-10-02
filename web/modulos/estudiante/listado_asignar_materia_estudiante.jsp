@@ -109,7 +109,7 @@
             	<table class="table table-bordered">
                   <tr class="well">
                     <td>
-                    	<h1 align="center">Listado  de Materias de los estudiantesna</h1>
+                    	<h1 align="center">Listado  de Materias de los estudiantes</h1>
                         <center>
                       	<form name="form3" method="get" action="../../Controlador" class="form-search">
                             <input type="hidden" name="accion" value="ConsultarMateriaEstudiante" />

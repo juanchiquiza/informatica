@@ -84,7 +84,7 @@ public class Controlador extends HttpServlet {
        // ProviderDB ets = new ProviderDB();
         //boolean rpta = ets.insertar_Materia_Alumno(et);
         et.asignarMateriaAlumno(et);
-        response.sendRedirect("modulos/estudiante/asignar_materia_alumno.jsp?men=Se registro la materia al alumno de manera correcta");
+        response.sendRedirect("modulos/estudiante/asignar_materia_alumno.jsp?ced=" + et.getCodigo() + "&men=Se registro la materia al alumno de manera correcta");
 
     }
     
