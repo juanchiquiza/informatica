@@ -148,7 +148,7 @@
                     <td><%= est.getNombre()%></td>
                     <td><%= est.getApellido()%></td>
                     <td><%= est.getTelefono()%></td>
-                    <td><%= est.getNom_materia()%></td>
+                    <td><%= est.getMateria()%></td>
                     <td><%= est.getNota()%></td>
                  
                        </tr>

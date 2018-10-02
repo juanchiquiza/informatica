@@ -4,16 +4,18 @@
  */
 package Modelo;
 
+import static Modelo.ProviderDB.insertar_Materia_Alumno;
+
 /**
  *
  * @author juan
  */
-public class Estudiante extends Usuario{
+public class Estudiante extends Usuario implements MateriaAlumno{
     
     private String codigo;
     private String nota;
     private String Materia;
-    private String Nom_materia;
+   // private String Nom_materia;
     
     public Estudiante(){
     }
@@ -33,13 +35,13 @@ public class Estudiante extends Usuario{
         this.nota = nota;
     }
 
-    public String getNom_materia() {
+  /*  public String getNom_materia() {
         return Nom_materia;
     }
 
     public void setNom_materia(String Nom_materia) {
         this.Nom_materia = Nom_materia;
-    }
+    }*/
 
     public String getMateria() {
         return Materia;
@@ -94,5 +96,9 @@ public class Estudiante extends Usuario{
     
     public String pageEliminate() {
         return "modulos/estudiante/listado_estudiante.jsp";
+    }
+
+    public void asignarMateriaAlumno(Estudiante e) {
+        insertar_Materia_Alumno(e);
     }
 }

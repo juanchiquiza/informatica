@@ -54,7 +54,7 @@ public class  ProviderDB {
       
       return true;
      } 
-     public boolean insertar_Materia_Alumno(Estudiante e){
+     public static boolean insertar_Materia_Alumno(Estudiante e){
       try {
             ProviderDB cc = new ProviderDB();
             Connection cn= cc.conexion();
