@@ -97,7 +97,8 @@ public class Estudiante extends Usuario implements MateriaAlumno{
     public String pageEliminate() {
         return "modulos/estudiante/listado_estudiante.jsp";
     }
-
+    
+    @Override
     public void asignarMateriaAlumno(Estudiante e) {
         insertar_Materia_Alumno(e);
     }
